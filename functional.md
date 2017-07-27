@@ -14,7 +14,7 @@ Your specification **should include** the following types of information:
 
 * A title. Replace the title at the beginning of this document.
 * Summary or introduction. In general, in a few lines or less, what is your program about or what is it about?
-* How does the user access your program? Is it shared via http://runpython.com? Is a web site? Embedded in 
+* How does the user access your program? Is it shared via https://runpython.org? Is a web site? Embedded in 
   a single board computer? 
 * If there are graphics screens involved, describe every screen that the user will experience: what is it for? 
   What did the user have to do to get there and how does she move on to the next?

@@ -45,7 +45,6 @@ class Blocks(Sprite):
         collisioncontra =self.collidingWithSprites(type(self))
         if len(collisioncontra):
             collisioncontra[0].destroy()
-            
 
 class Wall(Blocks):
     def __init__(self,x,y):

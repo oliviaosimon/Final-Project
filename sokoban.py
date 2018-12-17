@@ -47,3 +47,35 @@ class Blocks(Sprite):
             collisioncontra[0].destroy()
             
 
+class Wall(Blocks):
+    def __init__(self,x,y):
+        super().__init__(x,y,60,60,grey)      #(self, x, y, w, h, color)
+        
+class Playah(Newton):
+    def __init__(self, x, y, app):
+        w = 10 
+        h = 10
+        super().__init__(x-w//2, y-h//2, w, h, lightBlue, app)
+        
+    def step(self):
+        Jumpers = self.collidingWithSprites(Jumper)    #interference with Jumpers
+        if len(Jumpers):
+            self.vy = -16    #y -- y positioning jump boost
+            self.resting = False
+        super().step()
+        
+    def move(self, key):
+        if key == "left arrow":
+            if self.vx > 0:
+                self.vx = 0
+            else:
+                self.vx = -5
+        elif key == "right arrow":
+            if self.vx < 0:
+                self.vx = 0
+            else:
+                self.vx = 5
+        elif key == "space" and self.resting:
+            self.vy = -12
+            self.resting = False
+            

@@ -2,11 +2,12 @@
 #Olivia Simon
 #12.17.18
 #Computer Programmming Period 4
+#other sources: 
+    #(platformer) https://github.com/oliviaosimon/Platformer/blob/master/platformer.py
+    
 
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
-
-
 
 myapp = App()
 
@@ -34,4 +35,15 @@ redline = LineStyle(1, red)
 greenline = LineStyle(1, green)
 gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
+
+class Blocks(Sprite):
+    def __init__(self, x, y, w, h, color):
+        grid = lambda X : X - X % w
+        super().__init__(
+            RectangleAsset(w-1, h-1, LineStyle(0,Color(0, 1.0)), color),(grid(x), grid(y)))
+        #collisions
+        collisioncontra =self.collidingWithSprites(type(self))
+        if len(collisioncontra):
+            collisioncontra[0].destroy()
+            
 

@@ -88,7 +88,7 @@ class Game(App):
         super().__init__()
         self.p = None
         self.pos = (0,0)
-        self.listenKey Event("keydown", "p", self.newPlayah)
+        self.listenKeyEvent("keydown", "p", self.newPlayah)
         self.listenKeyEvent("keydown", "left arrow", self.moveKey)
         self.listenKeyEvent("keydown", "right arrow", self.moveKey)
         self.listenKeyEvent("keydown", "up arrow", self.moveKey)

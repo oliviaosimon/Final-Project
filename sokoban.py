@@ -100,7 +100,8 @@ class Game(App):
         
         
         self.listenMouseEvent("mousemove", self.moveMouse)
-        
+        self.FallingJumpers = []
+        self.KillList = []
         
         
         
@@ -132,14 +133,17 @@ class Game(App):
             self.p.step()
         for s in self.FallingJumpers:      # problem fixed, empty list in Game added for fallingjumpers
             s.step()
-        for t in Game.getSpritesbyClass(Machina):
-            t.step()
-        for b in Game.getSpritesbyClass(Pellets):
-            b.step()
         for k in self.KillList:
             k.destroy()
         self.KillList = []
-
+    
+    def killMe(self, obj):
+        if obj in self.FallingJumpers:
+            self.FallingJumpers.remove(obj)
+        elif obj == self.p:
+            self.p = None
+        if not obj in self.KillList:
+            self.KillList.append(obj)
 
 
 

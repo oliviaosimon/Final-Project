@@ -74,7 +74,51 @@ class Playah(Newton):
                 self.vx = 0
             else:
                 self.vx = 5
-        elif key == "space" and self.resting:
-            self.vy = -12
-            self.resting = False
+        elif key == "up arrow":
+            self.vy = -5
+        elif key == "down arrow":
+            self.vy = 5
+
+class Crates(Blocks):
+    def __init__(self, x,y):
+        super().__init__(x,y,60,60,brown)     #(self, x, y, w, h, color)
+
+class Game(App):
+    def __init__(self):
+        super().__init__()
+        self.p = None
+        self.pos = (0,0)
+        self.listenKey Event("keydown", "p", self.newPlayah)
+        self.listenKeyEvent("keydown", "left arrow", self.moveKey)
+        self.listenKeyEvent("keydown", "right arrow", self.moveKey)
+        self.listenKeyEvent("keydown", "up arrow", self.moveKey)
+        self.listenKeyEvent("keydown", "down arrow", self.moveKey)
+        self.listenMouseEvent("mousemove", self.moveMouse)
+        
+        
+        
+    def moveMouse(self, event):
+        self.pos = (event.x, event.y)
+        
+    def newPlayah(self, event):
+        for p in Game.getSpritesbyClass(Playah):
+            p.destroy()
+            self.p = None
+        self.p = Playah(self.pos[0], self.pos[1], self)
+
+
+
+
+
+
+
+
+
+
+
+
+
+app = Game()
+app.run()
+
             

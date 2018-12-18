@@ -84,6 +84,7 @@ class Crates(Blocks):
     def __init__(self, x,y):
         super().__init__(x,y,60,60,brown)     #(self, x, y, w, h, color)
 
+#Glossarixj
 class Game(App):
     def __init__(self):
         super().__init__()

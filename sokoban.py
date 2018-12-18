@@ -93,7 +93,20 @@ class Game(App):
         self.listenKeyEvent("keydown", "right arrow", self.moveKey)
         self.listenKeyEvent("keydown", "up arrow", self.moveKey)
         self.listenKeyEvent("keydown", "down arrow", self.moveKey)
+        self.listenKeyEvent("keyup", "left arrow", self.stopMoveKey)
+        self.listenKeyEvent("keyup", "right arrow", self.stopMoveKey)
+        self.listenKeyEvent("keyup", "up arrow", self.stopMoveKey)
+        self.listenKeyEvent("keyup", "down arrow", self.stopMoveKey)
+        
+        
         self.listenMouseEvent("mousemove", self.moveMouse)
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -105,14 +118,27 @@ class Game(App):
             p.destroy()
             self.p = None
         self.p = Playah(self.pos[0], self.pos[1], self)
-
-
-
-
-
-
-
-
+        
+    def moveKey(self, event):
+        if self.p:
+            self.p.move(event.key)
+    
+    def stopMoveKey(self, event):
+        if self.p:
+            self.p.stopMove(event.key)
+            
+    def step(self):
+        if self.p:
+            self.p.step()
+        for s in self.FallingJumpers:      # problem fixed, empty list in Game added for fallingjumpers
+            s.step()
+        for t in Game.getSpritesbyClass(Machina):
+            t.step()
+        for b in Game.getSpritesbyClass(Pellets):
+            b.step()
+        for k in self.KillList:
+            k.destroy()
+        self.KillList = []
 
 
 

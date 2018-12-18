@@ -50,7 +50,7 @@ class Wall(Blocks):
     def __init__(self,x,y):
         super().__init__(x,y,60,60,grey)      #(self, x, y, w, h, color)
         
-class Playah(Newton):
+class Playah(Sprite):
     def __init__(self, x, y, app):
         w = 10 
         h = 10

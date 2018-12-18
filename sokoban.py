@@ -52,6 +52,7 @@ class Wall(Blocks):
         
 class Playah(Sprite):
     def __init__(self, x, y, app):
+        self.vx = self.vy = 0
         w = 10 
         h = 10
         super().__init__(x-w//2, y-h//2, w, h, lightBlue, app)

@@ -7,7 +7,9 @@
     
 
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, SoundAsset, ImageAsset, Frame
+from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame
+from ggame import App, RectangleAsset, ImageAsset, SoundAsset
+from ggame import LineStyle, Color, Sprite, Sound
 
 myapp = App()
 

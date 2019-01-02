@@ -102,7 +102,7 @@ class Pong(App):
         bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
         bg = Sprite(bg_asset, (0,0))
         
-        self.listenKeyEvent("keydown", "p", self.newPaddle)
+        Pong.listenKeyEvent("keydown", "p", self.newPaddle)
         self.listenKeyEvent("keydown", "up arrow", self.moveKey)
         self.listenKeyEvent("keydown", "down arrow", self.movekey)
         

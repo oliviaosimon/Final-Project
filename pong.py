@@ -76,7 +76,6 @@ class Paddle(Sprite):
         elif key == "down arrow":
             self.y += 5
 
-
 #keys
 #def reverseKey(event):
  #   reverse(ball)
@@ -106,13 +105,14 @@ class Pong(App):
         
         
         def newPaddle(self, event):
-            Paddle(200, 200)
+            for p in Game.getSpritesbyClass(Paddle):
+            p.destroy()
+            self.p = None
+        self.p = Paddle(400, 400, self)
         
         def moveKey(self, event):
             if self.p:
                 self.p.move(event.key)
-
-
 
 
 

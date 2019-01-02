@@ -93,6 +93,8 @@ class Paddle(Sprite):
 class Pong(App):
     def __init__(self):
         super().__init__()
+        self.p = None
+        self.pos = (0,0)
         ocean = Color(0x00fff0, 1)
         black = Color(0, 1)
         noline = LineStyle(0, black)

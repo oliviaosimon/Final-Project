@@ -38,7 +38,7 @@ myapp = App()
 #Ball
 class Ball(Sprite):
     ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
-    ball = Sprite(ball_asset, (0, 0))
+    ball = Sprite(ball_asset, (0, 400))
     ball.scale = 0.07
 
     # custom attributes
@@ -69,6 +69,13 @@ class Paddle(Sprite):
         w = 20 
         h = 60
         super().__init__(x, y, w, h, lightBlue, app)
+        
+    def move(self,key):
+        if key == "up arrow":
+            self.y += -5
+        elif key == "down arrow":
+            self.y += 5
+        
 
 #keys
 #def reverseKey(event):
@@ -93,14 +100,10 @@ class Pong(App):
         #background
         bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
         bg = Sprite(bg_asset, (0,0))
-        
-        Paddle((100,100))
-        Ball((300,300))
+        self.ListenKeyEvent
+        Paddle()
 
 
 myapp = Pong()
 myapp.run
-
-
-
 

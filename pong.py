@@ -40,13 +40,7 @@ grid=RectangleAsset(30,30,gridline,white)
 
 myapp = App()
 
-# define colors and line style
-ocean = Color(0x00fff0, 1)
-black = Color(0, 1)
-noline = LineStyle(0, black)
-#background
-bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
-bg = Sprite(bg_asset, (0,0))
+
 #Ball
 class Ball(Sprite):
     ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
@@ -81,7 +75,6 @@ class Paddle(Sprite):
         super().__init__(RectangleAsset, position)
        
 
-
 #keys
 # Handle the "reverse" key
 def reverseKey(event):
@@ -98,6 +91,13 @@ myapp.listenKeyEvent('keydown', 'r', reverseKey)
 myapp.listenMouseEvent('click', mouseClick)
    
 class Pong(App):
+    ocean = Color(0x00fff0, 1)
+    black = Color(0, 1)
+    noline = LineStyle(0, black)
+    #background
+    bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
+    bg = Sprite(bg_asset, (0,0))
+    
     Paddle(100,100)
     Ball(300,300)
 

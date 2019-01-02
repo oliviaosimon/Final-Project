@@ -5,12 +5,9 @@
 #other sources: 
     #(platformer) https://github.com/oliviaosimon/Platformer/blob/master/platformer.py
     
-
-
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
-
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -37,10 +34,7 @@ greenline = LineStyle(1, green)
 gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
-
 myapp = App()
-
-
 #Ball
 class Ball(Sprite):
     ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
@@ -77,19 +71,18 @@ class Paddle(Sprite):
         super().__init__(x, y, w, h, lightBlue, app)
 
 #keys
-# Handle the "reverse" key
-def reverseKey(event):
-    reverse(ball)
+#def reverseKey(event):
+ #   reverse(ball)
 
 # Handle the mouse click
-def mouseClick(event):
-    pew1.play()
-    ball.x = event.x
-    ball.y = event.y
+#def mouseClick(event):
+ #   pew1.play()
+  #  ball.x = event.x
+   # ball.y = event.y
     
 # Set up event handlers for the app
-myapp.listenKeyEvent('keydown', 'r', reverseKey)
-myapp.listenMouseEvent('click', mouseClick)
+#myapp.listenKeyEvent('keydown', 'r', reverseKey)
+#myapp.listenMouseEvent('click', mouseClick)
    
 class Pong(App):
     def __init__(self):

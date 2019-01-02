@@ -100,8 +100,8 @@ class Pong(App):
         bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
         bg = Sprite(bg_asset, (0,0))
         
-        Paddle(100,100)
-        Ball(300,300)
+        Paddle((100,100))
+        Ball((300,300))
 
 
 

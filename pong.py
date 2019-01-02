@@ -49,33 +49,41 @@ noline = LineStyle(0, black)
 bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
 bg = Sprite(bg_asset, (0,0))
 #Ball
-ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
-ball = Sprite(ball_asset, (0, 0))
-ball.scale = 0.07
+class Ball(Sprite):
+    ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
+    ball = Sprite(ball_asset, (0, 0))
+    ball.scale = 0.07
 
-# custom attributes
-ball.direction = 1
-ball.go = True
-# Sounds
-pew1_asset = SoundAsset("sounds/pew1.mp3")
-pew1 = Sound(pew1_asset)
-pop_asset = SoundAsset("sounds/reappear.mp3")
-pop = Sound(pop_asset)
+    # custom attributes
+    ball.direction = 1
+    ball.go = True
+    # Sounds
+    pew1_asset = SoundAsset("sounds/pew1.mp3")
+    pew1 = Sound(pew1_asset)
+    pop_asset = SoundAsset("sounds/reappear.mp3")
+    pop = Sound(pop_asset)
+    
+    # reverse - change the ball direction
+    def reverse(b):
+        pop.play()
+        b.direction *= -1
+    
+    # Bounce
+    def step():
+        if ball.go:
+            ball.x += ball.direction
+            if ball.x + ball.width > myapp.width or ball.x < 0:
+                ball.x -= ball.direction
+                reverse(ball)
 
-# reverse - change the ball direction
-def reverse(b):
-    pop.play()
-    b.direction *= -1
-
-# Set up function for handling screen refresh
-def step():
-    if ball.go:
-        ball.x += ball.direction
-        if ball.x + ball.width > myapp.width or ball.x < 0:
-            ball.x -= ball.direction
-            reverse(ball)
+#Paddle Playah
+class Paddle(Sprite):
+    def __init__(self, position):
+        super().__init__(RectangleAsset, position)
+        Paddle(100,100)
 
 
+#keys
 # Handle the "reverse" key
 def reverseKey(event):
     reverse(ball)

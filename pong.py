@@ -65,17 +65,17 @@ class Ball(Sprite):
 
 #Paddle Playah
 class Paddle(Sprite):
-    def __init__(self, x, y, app):
+    def __init__(self, x, y):
         w = 20 
         h = 60
-        super().__init__(x, y, w, h, lightBlue, app)
+        super().__init__(x, y, w, h, lightBlue)
         
     def move(self,key):
         if key == "up arrow":
             self.y += -5
         elif key == "down arrow":
             self.y += 5
-        
+
 
 #keys
 #def reverseKey(event):
@@ -100,13 +100,23 @@ class Pong(App):
         #background
         bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
         bg = Sprite(bg_asset, (0,0))
+        self.ListenKeyEvent("keydown", "p", self.newPaddle)
         self.ListenKeyEvent("keydown", "up arrow", self.moveKey)
         self.ListenKeyEvent("keydown", "down arrow", self.movekey)
-        self.p = Paddle(self.pos[0], self.pos[1],self)
+        
+        
+        def newPaddle(self, event):
+            Paddle(200, 200)
         
         def moveKey(self, event):
             if self.p:
                 self.p.move(event.key)
+
+
+
+
+
+
 
 
 myapp = Pong()

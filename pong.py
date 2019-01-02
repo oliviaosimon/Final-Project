@@ -11,7 +11,6 @@ from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 
-myapp = App()
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -97,6 +96,7 @@ def mouseClick(event):
 # Set up event handlers for the app
 myapp.listenKeyEvent('keydown', 'r', reverseKey)
 myapp.listenMouseEvent('click', mouseClick)
+    
     
 myapp.run(step)
 

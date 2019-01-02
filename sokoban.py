@@ -116,10 +116,8 @@ class Game(App):
         
         
     def newPlayah(self, event):
-        for p in Game.getSpritesbyClass(Playah):
-            p.destroy()
-            self.p = None
-        self.p = Playah(self.pos[0], self.pos[1], self)
+        Playah(200,250)
+        
         
     def moveKey(self, event):
         if self.p:
@@ -132,8 +130,6 @@ class Game(App):
     def step(self):
         if self.p:
             self.p.step()
-        for s in self.FallingJumpers:      # problem fixed, empty list in Game added for fallingjumpers
-            s.step()
         for k in self.KillList:
             k.destroy()
         self.KillList = []

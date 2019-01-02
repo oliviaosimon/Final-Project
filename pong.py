@@ -91,7 +91,7 @@ myapp.listenKeyEvent('keydown', 'r', reverseKey)
 myapp.listenMouseEvent('click', mouseClick)
    
 class Pong(App):
-    def__init__(self):
+    def __init__(self):
         super().__init__()
         ocean = Color(0x00fff0, 1)
         black = Color(0, 1)

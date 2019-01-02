@@ -45,14 +45,14 @@ myapp = App()
 ocean = Color(0x00fff0, 1)
 black = Color(0, 1)
 noline = LineStyle(0, black)
-# a rectangle asset and sprite to use as background
-bg_asset = RectangleAsset(myapp.width, myapp.height, noline, green)
+#background
+bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
 bg = Sprite(bg_asset, (0,0))
-# A ball! This is already in the ggame-tutorials repository
-ball_asset = ImageAsset("images/orb-150545_640.png")
+#Ball
+ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
 ball = Sprite(ball_asset, (0, 0))
-# Original image is too big. Scale it to 1/10 its original size
 ball.scale = 0.07
+
 # custom attributes
 ball.direction = 1
 ball.go = True

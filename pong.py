@@ -91,15 +91,17 @@ myapp.listenKeyEvent('keydown', 'r', reverseKey)
 myapp.listenMouseEvent('click', mouseClick)
    
 class Pong(App):
-    ocean = Color(0x00fff0, 1)
-    black = Color(0, 1)
-    noline = LineStyle(0, black)
-    #background
-    bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
-    bg = Sprite(bg_asset, (0,0))
-    
-    Paddle(100,100)
-    Ball(300,300)
+    def__init__(self):
+        super().__init__()
+        ocean = Color(0x00fff0, 1)
+        black = Color(0, 1)
+        noline = LineStyle(0, black)
+        #background
+        bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
+        bg = Sprite(bg_asset, (0,0))
+        
+        Paddle(100,100)
+        Ball(300,300)
 
 
 

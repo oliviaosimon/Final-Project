@@ -71,9 +71,10 @@ class Ball(Sprite):
 
 #Paddle Playah
 class Paddle(Sprite):
-    def __init__(self, position):
-        super().__init__(RectangleAsset, position)
-       
+    def __init__(self, x, y, app):
+        w = 20 
+        h = 60
+        super().__init__(x, y, w, h, lightBlue, app)
 
 #keys
 # Handle the "reverse" key
@@ -102,8 +103,6 @@ class Pong(App):
         
         Paddle((100,100))
         Ball((300,300))
-
-
 
 
 myapp = Pong()

@@ -55,15 +55,27 @@ class Playah(Sprite):
         self.vx = self.vy = 0
         w = 10 
         h = 10
-        super().__init__(x-w//2, y-h//2, w, h, lightBlue, app)
+        x = 200
+        y = 250
+        super().__init__(x, y, w, h, lightBlue, app)
         
-    def step(self):
-        Jumpers = self.collidingWithSprites(Jumper)    #interference with Jumpers
-        if len(Jumpers):
-            self.vy = -16    #y -- y positioning jump boost
-            self.resting = False
-        super().step()
+        #walking walk waddle?
+        Playah.direction = 1
+        Playah.go = False
+    
+    #Reverse function
+    def reverse(b): 
+        b.direction *= -1
+
+    # Set up function for handling screen refresh
+    #def step():
+        #if Playah.go:
+         #   Playah.x += Playah.direction
+          #  if Playah.x + Playah.width > myapp.width or Playah.x < 0: #fix so if going out past walls ?
+           #     Playah.x -= Playah.direction
+            #        reverse(Playah)
         
+    
     def move(self, key):
         if key == "left arrow":
             if self.vx > 0:
@@ -84,7 +96,7 @@ class Crates(Blocks):
     def __init__(self, x,y):
         super().__init__(x,y,60,60,brown)     #(self, x, y, w, h, color)
 
-#Glossarixj
+#Glossarix
 class Game(App):
     def __init__(self):
         super().__init__()
@@ -100,21 +112,8 @@ class Game(App):
         self.listenKeyEvent("keyup", "up arrow", self.stopMoveKey)
         self.listenKeyEvent("keyup", "down arrow", self.stopMoveKey)
         
-        
-        self.listenMouseEvent("mousemove", self.moveMouse)
-        self.FallingJumpers = []
         self.KillList = []
         
-        
-        
-        
-        
-        
-        
-        
-        
-    def moveMouse(self, event):
-        self.pos = (event.x, event.y)
         
     def newPlayah(self, event):
         for p in Game.getSpritesbyClass(Playah):
@@ -148,9 +147,7 @@ class Game(App):
             self.KillList.append(obj)
 
 
-
-
 app = Game()
 app.run()
 
-            
+         

@@ -106,9 +106,9 @@ class Pong(App):
         
         def newPaddle(self, event):
             for p in Game.getSpritesbyClass(Paddle):
-            p.destroy()
-            self.p = None
-        self.p = Paddle(400, 400, self)
+                p.destroy()
+                self.p = None
+            self.p = Paddle(400, 400, self)
         
         def moveKey(self, event):
             if self.p:

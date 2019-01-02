@@ -79,7 +79,7 @@ class Ball(Sprite):
 class Paddle(Sprite):
     def __init__(self, position):
         super().__init__(RectangleAsset, position)
-        Paddle(100,100)
+       
 
 
 #keys
@@ -96,9 +96,16 @@ def mouseClick(event):
 # Set up event handlers for the app
 myapp.listenKeyEvent('keydown', 'r', reverseKey)
 myapp.listenMouseEvent('click', mouseClick)
-    
-    
-myapp.run(step)
+   
+class Pong(App):
+    Paddle(100,100)
+    Ball(300,300)
+
+
+
+
+myapp = Pong()
+myapp.run
 
 
 

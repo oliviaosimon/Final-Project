@@ -38,19 +38,19 @@ myapp = App()
 
 #Ball
 class Ball(Sprite):
-    ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
-    ball = Sprite(ball_asset, (0, 400))
-    ball.scale = 0.07
-
-    # custom attributes
-    ball.direction = 1
-    ball.go = True
-    # Sounds
-    pew1_asset = SoundAsset("sounds/pew1.mp3")
-    pew1 = Sound(pew1_asset)
-    pop_asset = SoundAsset("sounds/reappear.mp3")
-    pop = Sound(pop_asset)
-    
+    def __init__(self, position, w, h, color):
+        ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
+        #ball = Sprite(ball_asset, (0, 400))
+        ball.scale = 0.07
+        # custom attributes
+        ball.direction = 1
+        ball.go = True
+        # Sounds
+        pew1_asset = SoundAsset("sounds/pew1.mp3")
+        pew1 = Sound(pew1_asset)
+        pop_asset = SoundAsset("sounds/reappear.mp3")
+        pop = Sound(pop_asset)
+        
     # reverse - change the ball direction
     def reverse(b):
         pop.play()
@@ -71,7 +71,7 @@ class Paddle(Sprite):
         h = 60
         x = 400
         y = 400
-        rect = RectangleAsset
+        rect = RectangleAsset(w, h, blkline, lightBlue)
         super().__init__(rect, position)
         
     def move(self,key):
@@ -115,7 +115,7 @@ class Pong(App):
         for p in Pong.getSpritesbyClass(Paddle):
             p.destroy()
             self.p = None
-        self.p = Paddle((400, 400), 20, 60, lightBlue)
+        self.p = Paddle((400, 400), 20, 60)
     
     def moveKey(self, event):
         if self.p:

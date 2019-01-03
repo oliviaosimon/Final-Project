@@ -109,7 +109,7 @@ class Pong(App):
         
         
     def newPaddle(self, event):
-        for p in Game.getSpritesbyClass(Paddle):
+        for p in Pong.getSpritesbyClass(Paddle):
             p.destroy()
             self.p = None
         self.p = Paddle(400, 400, self)

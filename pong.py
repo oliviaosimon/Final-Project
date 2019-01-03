@@ -41,10 +41,10 @@ class Ball(Sprite):
     def __init__(self, position):
         ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
         #ball = Sprite(ball_asset, (0, 400))
-        ball.scale = 0.07
+        ball_asset.scale = 0.07
         # custom attributes
-        ball.direction = 1
-        ball.go = True
+        ball_asset.direction = 1
+        ball_asset.go = True
         # Sounds
         pew1_asset = SoundAsset("sounds/pew1.mp3")
         pew1 = Sound(pew1_asset)
@@ -68,7 +68,7 @@ class Ball(Sprite):
 
 #Paddle Playah
 class Paddle(Sprite):
-    def __init__(self, position, w, h, color):
+    def __init__(self, position, w, h):
         w = 20 
         h = 60
         x = 400
@@ -78,9 +78,9 @@ class Paddle(Sprite):
         
     def move(self,key):
         if key == "up arrow":
-            self.vy += -5
+            self.y += -5
         elif key == "down arrow":
-            self.vy += 5
+            self.y += 5
 
 #keys
 #def reverseKey(event):

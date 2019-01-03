@@ -38,7 +38,7 @@ myapp = App()
 
 #Ball
 class Ball(Sprite):
-    def __init__(self, position, w, h, color):
+    def __init__(self, position):
         ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
         #ball = Sprite(ball_asset, (0, 400))
         ball.scale = 0.07
@@ -50,6 +50,8 @@ class Ball(Sprite):
         pew1 = Sound(pew1_asset)
         pop_asset = SoundAsset("sounds/reappear.mp3")
         pop = Sound(pop_asset)
+        super().__init__(ball_asset, position)
+
         
     # reverse - change the ball direction
     def reverse(b):
@@ -105,6 +107,7 @@ class Pong(App):
         #background
         bg_asset = RectangleAsset(myapp.width, myapp.height, noline, ocean)
         bg = Sprite(bg_asset, (0,0))
+        Ball((0,400))
         
         Pong.listenKeyEvent("keydown", "p", self.newPaddle)
         self.listenKeyEvent("keydown", "up arrow", self.moveKey)

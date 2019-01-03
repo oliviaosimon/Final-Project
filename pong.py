@@ -66,10 +66,13 @@ class Ball(Sprite):
 
 #Paddle Playah
 class Paddle(Sprite):
-    def __init__(self, x, y):
+    def __init__(self, position, w, h, color):
         w = 20 
         h = 60
-        super().__init__(x, y, w, h, lightBlue)
+        x = 400
+        y = 400
+        rect = RectangleAsset
+        super().__init__(rect, position)
         
     def move(self,key):
         if key == "up arrow":
@@ -112,13 +115,11 @@ class Pong(App):
         for p in Pong.getSpritesbyClass(Paddle):
             p.destroy()
             self.p = None
-        self.p = Paddle(400, 400, self)
+        self.p = Paddle((400, 400), 20, 60, lightBlue)
     
     def moveKey(self, event):
         if self.p:
             self.p.move(event.key)
-
-
 
 
 myapp = Pong()

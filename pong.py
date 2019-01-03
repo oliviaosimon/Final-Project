@@ -107,15 +107,15 @@ class Pong(App):
         self.listenKeyEvent("keydown", "down arrow", self.movekey)
         
         
-        def newPaddle(self, event):
-            for p in Game.getSpritesbyClass(Paddle):
-                p.destroy()
-                self.p = None
-            self.p = Paddle(400, 400, self)
-        
-        def moveKey(self, event):
-            if self.p:
-                self.p.move(event.key)
+    def newPaddle(self, event):
+        for p in Game.getSpritesbyClass(Paddle):
+            p.destroy()
+            self.p = None
+        self.p = Paddle(400, 400, self)
+    
+    def moveKey(self, event):
+        if self.p:
+            self.p.move(event.key)
 
 
 

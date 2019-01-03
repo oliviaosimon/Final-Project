@@ -35,6 +35,7 @@ gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
 myapp = App()
+
 #Ball
 class Ball(Sprite):
     ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
@@ -72,9 +73,9 @@ class Paddle(Sprite):
         
     def move(self,key):
         if key == "up arrow":
-            self.y += -5
+            self.vy += -5
         elif key == "down arrow":
-            self.y += 5
+            self.vy += 5
 
 #keys
 #def reverseKey(event):
@@ -104,7 +105,7 @@ class Pong(App):
         
         Pong.listenKeyEvent("keydown", "p", self.newPaddle)
         self.listenKeyEvent("keydown", "up arrow", self.moveKey)
-        self.listenKeyEvent("keydown", "down arrow", self.movekey)
+        self.listenKeyEvent("keydown", "down arrow", self.moveKey)
         
         
     def newPaddle(self, event):
@@ -120,8 +121,5 @@ class Pong(App):
 
 
 
-
-
 myapp = Pong()
 myapp.run
-

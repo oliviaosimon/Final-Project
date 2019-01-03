@@ -40,11 +40,11 @@ myapp = App()
 class Ball(Sprite):
     def __init__(self, position):
         ball_asset = ImageAsset("images/orb-150545_640.png") #pull from repository
-        #ball = Sprite(ball_asset, (0, 400))
-        ball_asset.scale = 0.07
+        ball = Sprite(ball_asset, (0, 400))
+        ball.scale = 0.07
         # custom attributes
-        ball_asset.direction = 1
-        ball_asset.go = True
+        ball.direction = 1
+        ball.go = True
         # Sounds
         pew1_asset = SoundAsset("sounds/pew1.mp3")
         pew1 = Sound(pew1_asset)

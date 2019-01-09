@@ -50,7 +50,6 @@ class Background(Sprite):
         super().__init__(background, position)
         self.scale = 1.5
         
-        
 class Pongish(App):
     def __init__(self, width, height):
         super().__init__(width,height)
@@ -68,7 +67,7 @@ class Pongish(App):
         """)
         Background((0,0))
         
-# Listen key events -----------------------------------------------
+    # Listen key events -----------------------------------------------
         Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
         Pongish.listenKeyEvent("keydown", "up arrow", self.moveKey)
         Pongish.listenKeyEvent("keydown", "down arrow", self.moveKey)
@@ -78,7 +77,7 @@ class Pongish(App):
             
     def moveKey(self, event):
             
-myapp = Pongish(0,0)
+myapp = Pongish(1270,720)
 myapp.run()
 
 

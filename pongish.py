@@ -35,25 +35,25 @@ gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
 class Paddle(Sprite):
-    def__init__(self, position):
+    def __init__(self, position):
         rect = RectangleAsset(10, 50, blkline, lightBlue)
         super().__init__(rect, position)
         
 
 class Ball(Sprite):
-    def__init__(self, position):
+    def __init__(self, position):
         ball_asset = CircleAsset(5, blkline, red) #radi, line, color
         super().__init__(ball_asset, position)
         
 class Background(Sprite):
-    def__init__(self, position):
+    def __init__(self, position):
         background = ImageAsset("images/starfield.jpg")
         super().__init__(self, position)
         self.sccale = 1.5
         
         
 class Pongish(App):
-    def__init__(self, width, height):
+    def __init__(self, width, height):
         super().__init__(width,height)
         print("""
         WELCOME to PONG-ISH!

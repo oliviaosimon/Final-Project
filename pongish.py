@@ -108,17 +108,16 @@ class Background(Sprite):
         self.scale = 1.5
         
 class Pongish(App):
-        print("""
-WELCOME to PONG-ISH!
+        print(""" WELCOME to PONG-ISH!
 
-try and hit the ball 
-as many times as possible 
-try not to let it go past you
+        try and hit the ball 
+        as many times as possible 
+        try not to let it go past you
 
-to move your paddle,
-Use the up and down arrow keys
-Click "p" to start
-ENJOY!
+        to move your paddle,
+        Use the up and down arrow keys
+        Click "p" to start
+        ENJOY!
         """)
         Background((0,0))
         pelota = None

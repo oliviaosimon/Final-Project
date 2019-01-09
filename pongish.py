@@ -37,7 +37,7 @@ grid=RectangleAsset(30,30,gridline,white)
 
 class Paddle(Sprite):
     def __init__(self, position):
-        rect = RectangleAsset(10, 50, blkline, lightBlue)
+        rect = RectangleAsset(10, 100, blkline, lightBlue)
         super().__init__(rect, position)
         self.vx = 0
         self.vy = 0

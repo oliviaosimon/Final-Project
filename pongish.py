@@ -4,6 +4,7 @@
 #Computer Programmming Period 4
 #other sources: 
     #(platformer) https://github.com/oliviaosimon/Platformer/blob/master/platformer.py
+    #https://stackoverflow.com/questions/13881395/in-python-what-is-a-global-statement
     
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
@@ -45,6 +46,51 @@ class Ball(Sprite):
     ball_asset = CircleAsset(5, blkline, red) #radi, line, color
     def __init__(self, position):
         super().__init__(ball_asset, position)
+        
+class ball(Sprite):
+
+    def __init__(self, color, diameter, x, y):
+
+        global myapp
+
+        self.c = color
+
+        self.d = diameter
+
+        self.vy = 0
+
+        self.vx = 0
+
+        theball = CircleAsset(self.d, thinline, self.c)
+
+        myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
+
+        super().__init__(theball, (x, y))
+
+    def step(self):
+        self.vy *= 0.99
+        self.vx *= 0.99
+        self.y += self.vy
+        self.x += self.vx
+        
+        if sqrt((self.vy**2)+(self.vx**2)) < 1:
+            self.vy = 0
+            self.vx = 0
+        collisionList = self.collidingWith(paddle)
+        
+        if collisionList:
+            xpt = self.x
+            ypt = self.y
+            xvect = xpt-805
+            yvect = ypt-110
+            unitxvect = xvect/(sqrt((yvect**2)+(xvect**2)))
+            unityvect = yvect/(sqrt((yvect**2)+(xvect**2)))
+            self.x = self.x + (-.5*unitxvect)
+            self.y = self.y + (-.5*unityvect)
+            self.vx = 0
+            self.vy = 0
+            #scoreboard = TextAsset("Score: "+str(len(scorecounter)), style="bold 15pt Arial", width=250)
+            #Sprite(scoreboard, (760, 82))
         
 class Background(Sprite):
     background = ImageAsset("images/starfield.jpg")

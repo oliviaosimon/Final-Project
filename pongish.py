@@ -113,7 +113,7 @@ class Pongish(App):
         print("try not to let it go past you")
         print("to move your paddle,")
         print("Use the up and down arrow keys")
-        print("Click "p" to start)
+        print("Click p to start")
         print("ENJOY!")
         
         Background((0,0))

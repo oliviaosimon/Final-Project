@@ -74,10 +74,10 @@ class Pongish(App):
         Pongish.listenKeyEvent("keydown", "up arrow", self.moveKey)
         Pongish.listenKeyEvent("keydown", "down arrow", self.moveKey)
         
-        def newPaddle(self, event):
-            Paddle((400, 300))
+    def newPaddle(self, event):
+        Paddle((400, 300))
             
-        def moveKey(self, event):
+    def moveKey(self, event):
             
 myapp = Pongish(0,0)
 myapp.run()

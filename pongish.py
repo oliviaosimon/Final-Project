@@ -42,30 +42,18 @@ class Paddle(Sprite):
         self.vx = 0
         self.vy = 0
         
-class Ball(Sprite):
-    ball_asset = CircleAsset(5, blkline, red) #radi, line, color
-    def __init__(self, position):
-        super().__init__(ball_asset, position)
         
-class ball(Sprite):
+class Ball(Sprite):
 
     def __init__(self, color, diameter, x, y):
-
         global myapp
-
         self.c = color
-
         self.d = diameter
-
         self.vy = 0
-
         self.vx = 0
-
-        theball = CircleAsset(self.d, thinline, self.c)
-
+        rollypolly = CircleAsset(self.d, thinline, self.c)
         myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
-
-        super().__init__(theball, (x, y))
+        super().__init__(rollypolly, (x, y))
 
     def step(self):
         self.vy *= 0.99
@@ -89,8 +77,11 @@ class ball(Sprite):
             self.y = self.y + (-.5*unityvect)
             self.vx = 0
             self.vy = 0
-            #scoreboard = TextAsset("Score: "+str(len(scorecounter)), style="bold 15pt Arial", width=250)
+            #scoreboard = TextAsset("Score: "+str(len(count)), style="bold 15pt Arial", width=250)
             #Sprite(scoreboard, (760, 82))
+        paddleclap = self.collidingWith(Paddle)
+        if paddleclap:
+            self.vx = self.vx*-1
         
 class Background(Sprite):
     background = ImageAsset("images/starfield.jpg")
@@ -112,6 +103,8 @@ Click "p" to start
 ENJOY!
         """)
         Background((0,0))
+        pelota = None
+        count = []
         # Listen key events -----------------------------------------------
         Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
         Pongish.listenKeyEvent("keydown", "right arrow", self.right)

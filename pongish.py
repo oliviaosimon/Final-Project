@@ -70,12 +70,20 @@ class Pongish(App):
         Background((0,0))
         
 # Listen key events -----------------------------------------------
-        Pong.listenKeyEvent("keydown", "p", self.newPaddle)
-        self.listenKeyEvent("keydown", "up arrow", self.moveKey)
-        self.listenKeyEvent("keydown", "down arrow", self.moveKey)
+        Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
+        Pongish.listenKeyEvent("keydown", "up arrow", self.moveKey)
+        Pongish.listenKeyEvent("keydown", "down arrow", self.moveKey)
         
         def newPaddle(self, event):
+            for p in Pongish.getSpritesbyClass(Paddle):
+            p.destroy()
+            self.p = None
+            self.px = 0
+            self.py = 0
             Paddle((x,y))
+            
+            
+        def moveKey(self, event):
             
 myapp = Pongish(0,0)
 myapp.run()

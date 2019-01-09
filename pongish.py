@@ -48,7 +48,7 @@ class Ball(Sprite):
 class Background(Sprite):
     def __init__(self, position):
         background = ImageAsset("images/starfield.jpg")
-        super().__init__(self, position)
+        super().__init__(background, position)
         self.scale = 1.5
         
         
@@ -60,10 +60,10 @@ class Pongish(App):
         
         try and hit the ball 
         as many times as possible 
-        without letting it go past you
+        try not to let it go past you
         
+        to move your paddle,
         Use the up and down arrow keys
-        to move your paddle
         Click "p" to start
         ENJOY!
         """)

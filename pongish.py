@@ -102,8 +102,8 @@ class Ball(Sprite):
             
         
 class Background(Sprite):
-    background = ImageAsset("images/starfield.jpg")
     def __init__(self, position):
+        background = ImageAsset("images/starfield.jpg")
         super().__init__(background, position)
         self.scale = 1.5
         

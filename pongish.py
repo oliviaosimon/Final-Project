@@ -64,12 +64,12 @@ to move your paddle,
 Use the up and down arrow keys
 Click "p" to start
 ENJOY!
-            """)
-            Background((0,0))
+        """)
+        Background((0,0))
         # Listen key events -----------------------------------------------
-            Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
-            Pongish.listenKeyEvent("keydown", "right arrow", self.right)
-            Pongish.listenKeyEvent("keydown", "left arrow", self.left)
+        Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
+        Pongish.listenKeyEvent("keydown", "right arrow", self.right)
+        Pongish.listenKeyEvent("keydown", "left arrow", self.left)
 
     def __init__(self, width, height):
         super().__init__(width,height)

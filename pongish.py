@@ -38,6 +38,8 @@ class Paddle(Sprite):
     rect = RectangleAsset(10, 50, blkline, lightBlue)
     def __init__(self, position):
         super().__init__(rect, position)
+        self.vx = 0
+        self.vy = 0
         
 class Ball(Sprite):
     ball_asset = CircleAsset(5, blkline, red) #radi, line, color
@@ -53,29 +55,36 @@ class Background(Sprite):
 class Pongish(App):
     def __init__(self, width, height):
         super().__init__(width,height)
+        
         print("""
-        WELCOME to PONG-ISH!
+            WELCOME to PONG-ISH!
         
-        try and hit the ball 
-        as many times as possible 
-        try not to let it go past you
-        
-        to move your paddle,
-        Use the up and down arrow keys
-        Click "p" to start
-        ENJOY!
-        """)
-        Background((0,0))
-        
-    # Listen key events -----------------------------------------------
-        Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
-        Pongish.listenKeyEvent("keydown", "up arrow", self.moveKey)
-        Pongish.listenKeyEvent("keydown", "down arrow", self.moveKey)
-        
+            try and hit the ball 
+            as many times as possible 
+            try not to let it go past you
+            
+            to move your paddle,
+            Use the up and down arrow keys
+            Click "p" to start
+            ENJOY!
+            """)
+            Background((0,0))
+            
+        # Listen key events -----------------------------------------------
+            Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
+            Pongish.listenKeyEvent("keydown", "right arrow", self.right)
+            Pongish.listenKeyEvent("keydown", "left arrow", self.left)
+            
     def newPaddle(self, event):
         Paddle((400, 300))
             
-    def moveKey(self, event):
+    def right(self, event):
+        for s in self.getSpritesbyClass(Paddle):
+            s.vx = 2
+            
+    def left(self, event):
+        for s in self.getSpritesbyClass(Paddle):
+            s.vx = -2
             
 myapp = Pongish(1270,720)
 myapp.run()

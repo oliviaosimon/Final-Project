@@ -108,7 +108,9 @@ class Background(Sprite):
         self.scale = 1.5
         
 class Pongish(App):
-        print(" WELCOME to PONG-ISH!")
+    def __init__(self, width, height):
+        super().__init__(width,height)
+        print("  WELCOME to PONG-ISH! ")
         print("try and hit the ball as many times as possible")
         print("try not to let it go past you")
         print("to move your paddle,")
@@ -119,13 +121,12 @@ class Pongish(App):
         Background((0,0))
         pelota = None
         count = []
+        
         # Listen key events -----------------------------------------------
         Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
         Pongish.listenKeyEvent("keydown", "right arrow", self.right)
         Pongish.listenKeyEvent("keydown", "left arrow", self.left)
 
-    def __init__(self, width, height):
-        super().__init__(width,height)
         
     def newPaddle(self, event):
         Paddle((400, 300))

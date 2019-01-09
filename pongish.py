@@ -66,7 +66,7 @@ class Ball(Sprite):
             self.vx = 0
         collisionList = self.collidingWith(paddle)
         
-        if collisionList:
+        if collisionbit:
             xpt = self.x
             ypt = self.y
             xvect = xpt-805
@@ -82,6 +82,24 @@ class Ball(Sprite):
         paddleclap = self.collidingWith(Paddle)
         if paddleclap:
             self.vx = self.vx*-1
+            
+        wallclapOne = self.collidingWith(border1)
+        if wallclapOne:
+            self.vx = self.vx*-1
+        
+        wallclapTwo = self.collidingWith(borderUp)
+        if wallclapTwo:
+            self.vx = self.vx*-1
+            
+        wallclapThree = self.collidingWith(borderLow)
+        if wallclapThree:
+            self.vx = self.vx*-1
+        
+        gameDeath = self.collidingWith(backWall)
+        if gameDeath:
+            Ball.destroy()
+            print("GAME OVER!!!")
+            
         
 class Background(Sprite):
     background = ImageAsset("images/starfield.jpg")

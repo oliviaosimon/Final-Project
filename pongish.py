@@ -53,9 +53,6 @@ class Background(Sprite):
         self.scale = 1.5
         
 class Pongish(App):
-    def __init__(self, width, height):
-        super().__init__(width,height)
-        
         print("""
             WELCOME to PONG-ISH!
         
@@ -69,12 +66,14 @@ class Pongish(App):
             ENJOY!
             """)
             Background((0,0))
-            
         # Listen key events -----------------------------------------------
             Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
             Pongish.listenKeyEvent("keydown", "right arrow", self.right)
             Pongish.listenKeyEvent("keydown", "left arrow", self.left)
-            
+
+    def __init__(self, width, height):
+        super().__init__(width,height)
+        
     def newPaddle(self, event):
         Paddle((400, 300))
             

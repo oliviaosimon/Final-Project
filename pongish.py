@@ -54,16 +54,16 @@ class Background(Sprite):
         
 class Pongish(App):
         print("""
-            WELCOME to PONG-ISH!
-        
-            try and hit the ball 
-            as many times as possible 
-            try not to let it go past you
-            
-            to move your paddle,
-            Use the up and down arrow keys
-            Click "p" to start
-            ENJOY!
+WELCOME to PONG-ISH!
+
+try and hit the ball 
+as many times as possible 
+try not to let it go past you
+
+to move your paddle,
+Use the up and down arrow keys
+Click "p" to start
+ENJOY!
             """)
             Background((0,0))
         # Listen key events -----------------------------------------------

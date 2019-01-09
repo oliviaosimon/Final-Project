@@ -74,7 +74,9 @@ class Pongish(App):
         
         def newPaddle(self, event):
             Paddle((x,y))
-
+            
+myapp = Pongish(App)
+myapp.run()
 
 
 

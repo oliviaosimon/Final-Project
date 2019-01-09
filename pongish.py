@@ -76,11 +76,11 @@ class Pongish(App):
         
         def newPaddle(self, event):
             for p in Pongish.getSpritesbyClass(Paddle):
-            p.destroy()
-            self.p = None
-            self.px = 0
-            self.py = 0
-            Paddle((x,y))
+                p.destroy()
+                self.p = None
+                #self.px = 0
+                #self.py = 0
+            self.p = Paddle((0,0))
             
             
         def moveKey(self, event):

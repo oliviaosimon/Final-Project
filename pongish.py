@@ -35,19 +35,18 @@ gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
 class Paddle(Sprite):
+    rect = RectangleAsset(10, 50, blkline, lightBlue)
     def __init__(self, position):
-        rect = RectangleAsset(10, 50, blkline, lightBlue)
         super().__init__(rect, position)
         
-
 class Ball(Sprite):
+    ball_asset = CircleAsset(5, blkline, red) #radi, line, color
     def __init__(self, position):
-        ball_asset = CircleAsset(5, blkline, red) #radi, line, color
         super().__init__(ball_asset, position)
         
 class Background(Sprite):
+    background = ImageAsset("images/starfield.jpg")
     def __init__(self, position):
-        background = ImageAsset("images/starfield.jpg")
         super().__init__(background, position)
         self.scale = 1.5
         

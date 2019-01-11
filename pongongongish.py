@@ -50,6 +50,7 @@ class Paddle(Sprite):
 class Ball(Sprite):
     def __init__(self, position):
         global myapp
+        #count = 0
         #self.c = color
         #self.d = diameter
         self.vy = 0
@@ -57,7 +58,7 @@ class Ball(Sprite):
         rollypolly = CircleAsset(7, thinline, white)
         #myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
         super().__init__(rollypolly, position)
-        self.direction = 7.4
+        self.direction = 6
         self.go = True
         self.ydirection = 2
 
@@ -84,6 +85,8 @@ class Ball(Sprite):
         paddleclap = self.collidingWithSprites(Paddle)
         if paddleclap:
             self.direction = self.direction * -1
+            #count += 1
+            print("Great Job!")
     
         wallclapOne = self.collidingWithSprites(border1)
         if wallclapOne:
@@ -149,7 +152,7 @@ class Pongish(App):
         borderLow((0,710))
         backwall((0,0))
         pelota = None
-        count = []
+        #count = 0
         
         self.ball = None
         self.paddle = None

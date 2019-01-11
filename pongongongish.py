@@ -88,7 +88,7 @@ class Ball(Sprite):
         if wallclapThree:
             self.vx = self.vx*-1
 
-        gameDeath = self.collidingWithSprites(backWall)
+        gameDeath = self.collidingWithSprites(backwall)
         if gameDeath:
             self.destroy()
             myapp.ball = None

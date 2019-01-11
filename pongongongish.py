@@ -69,7 +69,7 @@ class Ball(Sprite):
             self.vy = 0
             self.vx = 0
             
-        print("step")
+        #print("step")
 
         #paddleclap = self.collidingWith(myapp.paddle)
         paddleclap = self.collidingWithSprites(Paddle)
@@ -149,7 +149,7 @@ class Pongish(App):
         
     def newPaddle(self, event):
         self.paddle = Paddle((400, 300))
-        self.ball = Ball((500, 300))
+        self.ball = Ball((400, 300))
 
     def up(self, event):
         for s in self.getSpritesbyClass(Paddle):

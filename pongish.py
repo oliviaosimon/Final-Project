@@ -122,7 +122,7 @@ class Pongish(App):
         print("ENJOY!")
         
         Background((0,0))
-        border1((999,0))
+        border1((1000,0))
         borderUp((0,0))
         borderLow((0,800))
         backwall((0,0))

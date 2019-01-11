@@ -85,14 +85,24 @@ class Ball(Sprite):
             print("GAME OVER!!!")
             
 class border1(Sprite):
-    
+    def __init__(self, position):
+        rect = RectangleAsset(8, 300, noline, black)
+        super().__init__(rect, position)
 
 class borderUp(Sprite):
+    def __init__(self, position):
+        rect = RectangleAsset(300, 8, noline, black)
+        super().__init__(rect, position)
     
 class borderLow(Sprite):
+    def __init__(self, position):
+        rect = RectangleAsset(300, 8, noline, black)
+        super().__init__(rect, position)
     
 class backwall(Sprite):
-    
+    def __init__(self, position):
+        rect = RectangleAsset(8, 300, noline, black)
+        super().__init__(rect, position)
 
 class Background(Sprite):
     def __init__(self, position):

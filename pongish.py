@@ -112,15 +112,15 @@ class Pongish(App):
         
     def newPaddle(self, event):
         Paddle((400, 300))
-        Ball((500, 300))
+        Ball((400, 300))
             
     def up(self, event):
         for s in self.getSpritesbyClass(Paddle):
-            s.vy = 2
+            s.vy = -10
             
     def down(self, event):
         for s in self.getSpritesbyClass(Paddle):
-            s.vy = -2
+            s.vy = 10
             
 myapp = Pongish(1270,720)
 myapp.run()

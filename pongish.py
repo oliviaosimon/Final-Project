@@ -62,20 +62,7 @@ class Ball(Sprite):
         if sqrt((self.vy**2)+(self.vx**2)) < 1:
             self.vy = 0
             self.vx = 0
-        collisionbit = self.collidingWith(paddle)
-        if collisionbit:
-            xpt = self.x
-            ypt = self.y
-            xvect = xpt-805
-            yvect = ypt-110
-            unitxvect = xvect/(sqrt((yvect**2)+(xvect**2)))
-            unityvect = yvect/(sqrt((yvect**2)+(xvect**2)))
-            self.x = self.x + (-.5*unitxvect)
-            self.y = self.y + (-.5*unityvect)
-            self.vx = 0
-            self.vy = 0
-            #scoreboard = TextAsset("Score: "+str(len(count)), style="bold 15pt Arial", width=250)
-            #Sprite(scoreboard, (760, 82))
+        
         paddleclap = self.collidingWith(Paddle)
         if paddleclap:
             self.vx = self.vx*-1
@@ -120,21 +107,20 @@ class Pongish(App):
         
         # Listen key events -----------------------------------------------
         Pongish.listenKeyEvent("keydown", "p", self.newPaddle)
-        Pongish.listenKeyEvent("keydown", "right arrow", self.right)
-        Pongish.listenKeyEvent("keydown", "left arrow", self.left)
-
+        Pongish.listenKeyEvent("keydown", "up arrow", self.up)
+        Pongish.listenKeyEvent("keydown", "down arrow", self.down)
         
     def newPaddle(self, event):
         Paddle((400, 300))
         Ball((500, 300))
             
-    def right(self, event):
+    def up(self, event):
         for s in self.getSpritesbyClass(Paddle):
-            s.vx = 2
+            s.vy = 2
             
-    def left(self, event):
+    def down(self, event):
         for s in self.getSpritesbyClass(Paddle):
-            s.vx = -2
+            s.vy = -2
             
 myapp = Pongish(1270,720)
 myapp.run()

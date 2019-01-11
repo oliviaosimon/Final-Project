@@ -134,7 +134,7 @@ class Pongish(App):
         Background((0,0))
         border1((1500,0))
         borderUp((0,0))
-        borderLow((0,750))
+        borderLow((0,710))
         backwall((0,0))
         pelota = None
         count = []

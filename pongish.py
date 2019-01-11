@@ -43,15 +43,15 @@ class Paddle(Sprite):
         self.vy = 0
         
 class Ball(Sprite):
-    def __init__(self, color, diameter, x, y):
+    def __init__(self, position):
         global myapp
-        self.c = color
-        self.d = diameter
+        #self.c = color
+        #self.d = diameter
         self.vy = 0
         self.vx = 0
-        rollypolly = CircleAsset(self.d, thinline, self.c)
-        myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
-        super().__init__(rollypolly, (x, y))
+        rollypolly = CircleAsset(7, thinline, white)
+        #myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
+        super().__init__(rollypolly, position)
 
     def step(self):
         self.vy *= 0.99
@@ -62,8 +62,7 @@ class Ball(Sprite):
         if sqrt((self.vy**2)+(self.vx**2)) < 1:
             self.vy = 0
             self.vx = 0
-        collisionList = self.collidingWith(paddle)
-        
+        collisionbit = self.collidingWith(paddle)
         if collisionbit:
             xpt = self.x
             ypt = self.y

@@ -42,9 +42,7 @@ class Paddle(Sprite):
         self.vx = 0
         self.vy = 0
         
-        
 class Ball(Sprite):
-
     def __init__(self, color, diameter, x, y):
         global myapp
         self.c = color
@@ -100,7 +98,6 @@ class Ball(Sprite):
             Ball.destroy()
             print("GAME OVER!!!")
             
-        
 class Background(Sprite):
     def __init__(self, position):
         background = ImageAsset("images/starfield.jpg")
@@ -130,6 +127,7 @@ class Pongish(App):
         
     def newPaddle(self, event):
         Paddle((400, 300))
+        Ball((500, 300))
             
     def right(self, event):
         for s in self.getSpritesbyClass(Paddle):

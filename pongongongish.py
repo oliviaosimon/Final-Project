@@ -57,7 +57,7 @@ class Ball(Sprite):
         rollypolly = CircleAsset(7, thinline, white)
         #myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
         super().__init__(rollypolly, position)
-        self.direction = 1
+        self.direction = 5
         self.go = True
 
     def step(self):
@@ -81,11 +81,12 @@ class Ball(Sprite):
         #paddleclap = self.collidingWith(myapp.paddle)
         paddleclap = self.collidingWithSprites(Paddle)
         if paddleclap:
-            self.vx = self.vx*-1
+            self.direction = self.direction * -1
     
         wallclapOne = self.collidingWithSprites(border1)
         if wallclapOne:
-            self.vx = self.vx*-1
+            self.direction = self.direction * -1
+            #self.vx = self.vx*-1
         
         wallclapTwo = self.collidingWithSprites(borderUp)
         if wallclapTwo:

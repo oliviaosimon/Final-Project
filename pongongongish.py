@@ -57,13 +57,15 @@ class Ball(Sprite):
         rollypolly = CircleAsset(7, thinline, white)
         #myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
         super().__init__(rollypolly, position)
-        self.direction = 5
+        self.direction = 7.4
         self.go = True
+        self.ydirection = 2
 
     def step(self):
         global myapp
         if self.go:
             self.x += self.direction
+            self.y += self.ydirection
         if self.x + self.width > myapp.width or self.x < 0:
             self.x -= self.direction
             #reverse(Ball)
@@ -90,11 +92,13 @@ class Ball(Sprite):
         
         wallclapTwo = self.collidingWithSprites(borderUp)
         if wallclapTwo:
-            self.vx = self.vx*-1
+            #self.vx = self.vx*-1
+            self.ydirection = self.ydirection * -1
             
         wallclapThree = self.collidingWithSprites(borderLow)
         if wallclapThree:
-            self.vx = self.vx*-1
+            #self.vx = self.vx*-1
+            self.ydirection = self.ydirection * -1
 
         gameDeath = self.collidingWithSprites(backwall)
         if gameDeath:

@@ -84,6 +84,16 @@ class Ball(Sprite):
             Ball.destroy()
             print("GAME OVER!!!")
             
+class border1(Sprite):
+    
+
+class borderUp(Sprite):
+    
+class borderLow(Sprite):
+    
+class backwall(Sprite):
+    
+
 class Background(Sprite):
     def __init__(self, position):
         background = ImageAsset("images/starfield.jpg")

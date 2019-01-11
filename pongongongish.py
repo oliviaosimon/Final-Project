@@ -94,6 +94,26 @@ class Ball(Sprite):
             myapp.ball = None
             print("GAME OVER!!!")
         
+class border1(Sprite):
+    def __init__(self, position):
+        rect = RectangleAsset(8, 800, noline, black)
+        super().__init__(rect, position)
+
+class borderUp(Sprite):
+    def __init__(self, position):
+        rect = RectangleAsset(1000, 8, noline, black)
+        super().__init__(rect, position)
+    
+class borderLow(Sprite):
+    def __init__(self, position):
+        rect = RectangleAsset(1000, 8, noline, black)
+        super().__init__(rect, position)
+    
+class backwall(Sprite):
+    def __init__(self, position):
+        rect = RectangleAsset(8, 800, noline, black)
+        super().__init__(rect, position)
+
 class Background(Sprite):
     def __init__(self, position):
         background = ImageAsset("images/starfield.jpg")

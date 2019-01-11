@@ -86,22 +86,22 @@ class Ball(Sprite):
             
 class border1(Sprite):
     def __init__(self, position):
-        rect = RectangleAsset(8, 300, noline, black)
+        rect = RectangleAsset(8, 800, noline, black)
         super().__init__(rect, position)
 
 class borderUp(Sprite):
     def __init__(self, position):
-        rect = RectangleAsset(300, 8, noline, black)
+        rect = RectangleAsset(1000, 8, noline, black)
         super().__init__(rect, position)
     
 class borderLow(Sprite):
     def __init__(self, position):
-        rect = RectangleAsset(300, 8, noline, black)
+        rect = RectangleAsset(1000, 8, noline, black)
         super().__init__(rect, position)
     
 class backwall(Sprite):
     def __init__(self, position):
-        rect = RectangleAsset(8, 300, noline, black)
+        rect = RectangleAsset(8, 800, noline, black)
         super().__init__(rect, position)
 
 class Background(Sprite):
@@ -122,6 +122,8 @@ class Pongish(App):
         print("ENJOY!")
         
         Background((0,0))
+        border1((999,0))
+        
         pelota = None
         count = []
         
